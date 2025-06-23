@@ -10,10 +10,11 @@
 
 ## Overview
 This repository documents a GNS3 lab demonstrating the configuration and verification of a Generic Routing Encapsulation (GRE) tunnel. The lab establishes a secure and routable path between two remote networks over an insecure public network.
+ GRE is a tunneling protocol that encapsulates various network layer protocols within an IP header, establishing a logical, point-to-point connection between two routers over an existing IP infrastructure. This enables routing and connectivity between disparate networks as if they were directly linked, often serving as a foundation for more complex VPN solutions.
 
 ## Lab Topology
 
-![Lab Topology](Images/GRE_TUNNEL_Topology.png)
+![Lab Topology](https://res.cloudinary.com/dkhycupho/image/upload/GRE_TUNNEL_Topology_jlaeyb.png)
 
 
 *(In my Lab I made use of "Two Cisco IOSv routers (C1, C2) connected via three Cisco IOSV routers acting as an 'ISP' cloud. Each router(C1 and C2) has a LAN segment behind it with an Ubuntu client connected to each router (c1 and C2).")*
@@ -51,13 +52,13 @@ c1(config-router)#network 10.1.0.0 0.0.255.255 area 0
 
 ## C1 Router Snipshots
 
-![C1 interface config](Images/c1_interface_config.png)
-![C1 DHCP Pool for Ubuntu client](Images/C1_DHCP_POOL_config_for_Ubuntu_client.png)
-![C1 Routing table and ping success to C2](Images/C1_routing_table_and_ping_success_to_C2.png)
-![C1 Tunnel interface config](Images/Tunnel_interface_config_on_C1.png)
-![C1 Tunnel interface success pings to C2 Tunnel interface](Images/successful_pings_between_C1_tunnel_and_C2_Tunnel.png)
-![C1 route advertisement](Images/C1_ospf_config_to_advertise_route_to_C2.png)
-![C1 Routing Table after Route advertisement](Images/c1_Routing_Table_after_Router_advertisement.png)
+![C1 interface config](https://res.cloudinary.com/dkhycupho/image/upload/c1_interface_cofig_illrb5.png)
+![C1 DHCP Pool for Ubuntu client](https://res.cloudinary.com/dkhycupho/image/upload/C1_DHCP_POOL_config_for_Ubuntu_client_fzjeiu.png)
+![C1 Routing table and ping success to C2](https://res.cloudinary.com/dkhycupho/image/upload/C1_routing_table_and_ping_success_to_C2_fakriu.png)
+![C1 Tunnel interface config](https://res.cloudinary.com/dkhycupho/image/upload/Tunnel_interface_config_on_C1_lezjqq.png)
+![C1 Tunnel interface success pings to C2 Tunnel interface](https://res.cloudinary.com/dkhycupho/image/upload/successful_pings_between_C1_tunnel_and_C2_Tunnel_fqub2u.png)
+![C1 route advertisement](https://res.cloudinary.com/dkhycupho/image/upload/C1_ospf_config_to_advertise_route_to_C2_gtwglr.png)
+![C1 Routing Table after Route advertisement](https://res.cloudinary.com/dkhycupho/image/upload/c1_Routing_Table_after_Router_advertisement_vq56o0.png)
 
 ### C2 Configuration
 c2(config-if)#int g0/1      
@@ -84,13 +85,13 @@ c2(config-router)#network 10.1.0.0 0.0.255.255 area 0
 
 ## C2 Router Snipshots
 
-![C2 interface config](Images/c2_interface_config.png)
-![C2 DHCP Pool for Ubuntu client](Images/C2_DHCP_POOL_config_for_Ubuntu_client.png)
-![C2 ping success to C1](Images/C2_success_ping_to_C1.png)
-![C2 Tunnel interface config](Images/Tunnel_interface_config_on_C2.png)
-![C2 Tunnel interface success pings to C1 Tunnel interface](Images/successful_pings_between_C2_tunnel_and_C1_tunnel.png)
-![C2 Ospf advertised route to C1](Images/C2_ospf_advertised_route_to_C1.png)
-![C2 Routing Table after Route advertisement](Images/C2_Routing_Table_after_Route_advertisement.png)
+![C2 interface config](https://res.cloudinary.com/dkhycupho/image/upload/C2_interface_config_lncly8.png)
+![C2 DHCP Pool for Ubuntu client](https://res.cloudinary.com/dkhycupho/image/upload/C2_DHCP_POOL_config_for_unbuntu_client_th9cx3.png)
+![C2 ping success to C1](https://res.cloudinary.com/dkhycupho/image/upload/C2_success_ping_to_C1_pmvjo0.png)
+![C2 Tunnel interface config](https://res.cloudinary.com/dkhycupho/image/upload/Tunnel_Interface_config_on_C2_msorpr.png)
+![C2 Tunnel interface success pings to C1 Tunnel interface](https://res.cloudinary.com/dkhycupho/image/upload/successful_pings_between_C2_tunnel_and_C1_tunnel_qnyllv.png)
+![C2 Ospf advertised route to C1](https://res.cloudinary.com/dkhycupho/image/upload/C2_ospf__advertised_route_to_C1_jaj4xy.png)
+![C2 Routing Table after Route advertisement](https://res.cloudinary.com/dkhycupho/image/upload/C2_Routing_Table_after_Route_advertisement_yidzom.png)
 
 
 ### ISP1 Configuration
@@ -154,16 +155,17 @@ ISP3(config)#neighbor 8.8.9.1 remote-as 65000
 
 ## ISPs Routing Table not learning anything about the Tunnel Ip Address
 
-![ISP1 Routing Table](Images/ISP1_Routing_table_to_show_its_not_learning_the_Ip_add_of_the_tunnel_interface.png)
-![ISP2 Routing Table](Images/ISP2_Routing_table_to_show_its_not_learning_the_Ip_add_of_the_tunnel_interface.png)
+![ISP1 Routing Table](https://res.cloudinary.com/dkhycupho/image/upload/ISP1_Routing_table_to_show_its_not_learning_the_Ip_add_of_the_tunnel_interface_untbmm.png)
+![ISP2 Routing Table](https://res.cloudinary.com/dkhycupho/image/upload/ISP2_Routing_table_to_show_its_not_learning_the_Ip_add_of_the_tunnel_interface_s7mwmi.png)
+![ISP3 Routing Table](https://res.cloudinary.com/dkhycupho/image/upload/ISP3_Routing_table_to_show_its_not_learning_the_Ip_add_of_the_tunnel_interface_lqdwma.png)
 
 ## Snapshot from wireshark showing the GRE being encapsulated in the IP
-![Wireshark IP inspection](Images/wireshark_showing_the_src_and_dest_ip_used_while_transferring_the_packet.png)
-![Wireshark IP inspection](Images/Wireshark_shows_the_GRE_ip_being_encapsulated_and_not_known_by_the_ISP_routers.png)
+![Wireshark IP inspection](https://res.cloudinary.com/dkhycupho/image/upload/wireshark_showing_the_src_and_dest_ip_used_while_transferring_the_packet_cestym.png)
+![Wireshark IP inspection](https://res.cloudinary.com/dkhycupho/image/upload/v1750683436/Wireshark_shows_the_GRE_ip_being_encapsulated_and_not_known_by_the_ISP_routers_hkajjf.png)
 
 ## Snapshot of pings between Ubuntu clients on the 2 customer sites
-![pings from Ubuntu Client at C1 to Ubuntu client at C2](Images/Succesful_pings_from_Ubuntu_client_at_C1_site_to_the_ubuntu_Client_at_C2_site.png)
-![pings from Ubuntu Client at C2 to Ubuntu client at C1](Images/Succesful_pings_from_Ubuntu_client_at_C2_site_to_the_ubuntu_Client_at_C1_site.png)
+![pings from Ubuntu Client at C1 to Ubuntu client at C2](https://res.cloudinary.com/dkhycupho/image/upload/Succesful_pings_from_Ubuntu_client_at_C1_site_to_the_ubuntu_Client_at_C2_site_tkmpcb.png)
+![pings from Ubuntu Client at C2 to Ubuntu client at C1](https://res.cloudinary.com/dkhycupho/image/upload/Succesful_pings_from_Ubuntu_client_at_C2_site_to_the_ubuntu_Client_at_C1_site_by5mol.png)
 
 ### Conclusion
 This lab provided a practical walkthrough for configuring and verifying a GRE tunnel in a GNS3 environment. We achieved the primary objective of establishing routable connectivity between two remote networks across an intermediary "ISP" network using GRE encapsulation. Verification steps, including ping and traceroute, confirmed the tunnel's functionality.
